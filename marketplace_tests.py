@@ -1,2 +1,0 @@
-from marketplace import remove_a_product
-remove_a_product()

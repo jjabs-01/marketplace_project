@@ -1,22 +1,58 @@
-<<<<<<< HEAD
-This Python program is a command-line-based product management system designed to let users manage a list of products through an interactive text menu. Each product has a name, a category, a price, and a timestamp that records the exact moment the item was added. All data is stored persistently in a CSV file called marketplace.csv, allowing the program to retain information between runs. The system is object-oriented, built around an Items class that encapsulates data validation rules for each product attribute using property decorators and custom setters.
+# Product Manager CLI
 
-When the program starts, it continuously prompts the user with a menu of options until they choose to exit. The user can choose to add a new product, remove an existing one, sort the entire product list, search for a product by name, compare two products by price, clear the entire file, or quit the application. Each of these functionalities is implemented in a dedicated function, making the code modular and easy to maintain.
+A Python-based command-line application for managing products. It allows users to add, remove, sort, search, and compare products with full input validation and timestamp logging. Product data is stored persistently in a local CSV file, making it lightweight and easy to use without any database setup.
 
-Adding a product involves collecting user input for the product’s name, category, and price. Input validation is performed to ensure that the name is not empty, the category matches one of a predefined set of acceptable values, and the price is non-negative. If the product passes all checks and doesn’t already exist in the file (checked by name, case-insensitive), it is written to the CSV along with a timestamp generated at that moment using Python’s datetime.now() function. The timestamp is formatted in a readable “YYYY-MM-DD HH:MMAM/PM” style.
+---
 
-Removing a product asks the user for a name and deletes any matching product from the CSV file. The system reads all current entries, filters out the one with the specified name, and rewrites the entire file without it. If no such product is found, the user is informed.
+## Features
 
-Sorting can be done by category, price, name, or timestamp. For string fields, sorting is case-insensitive; for price, the string is converted to a float before comparison. For timestamps, the string is parsed into a datetime object using datetime.strptime() to ensure proper chronological ordering. The sorted result overwrites the CSV, maintaining updated order.
+- Add products with name, category, price, and timestamp
+- Remove products by name (case-insensitive)
+- Sort product list by category, price, name, or timestamp
+- Search for specific product details by name
+- Compare prices between any two products
+- Clear all data in the CSV file with confirmation
+- Fully object-oriented design using a custom `Items` class
+- Uses only standard Python libraries (`csv`, `os`, `datetime`, `sys`)
 
-Finding a product allows the user to enter a name and search the CSV file for matches. If found, it prints out the product’s name, category, and price. The search is case-insensitive, and the user is prompted to continue searching or return to the main menu.
+---
 
-The compare function asks for two product names and checks if both exist in the file. It then compares their prices numerically and prints which product is more expensive, or if they are equal. Input validation ensures the names match exactly one item each before comparing.
+## How to Use
 
-There is also a clear function that lets the user wipe the entire CSV file after confirming the decision. This resets the file but retains the column headers. Lastly, the exit function cleanly terminates the program using sys.exit().
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/marketplace_project.git
+   cd marketplace_project
+Run the application
 
-Internally, all file I/O is handled using Python’s csv.DictReader and csv.DictWriter for structured, dictionary-style data access. This avoids manual parsing and makes the code more readable. The use of object-oriented programming, input validation, datetime formatting, and persistent storage through CSV makes this program a practical and well-structured command-line application. While it is basic in interface, it demonstrates solid software principles and provides a realistic simulation of how small inventory systems work behind the scenes.
-=======
-# marketplace_project
-This Python CLI app manages products in a CSV file. Users can add, remove, sort, search, and compare items by name, category, price, or timestamp. It validates inputs, prevents duplicates, and uses timestamps for tracking. Data is stored using the csv module and structured via an Items class with properties.
->>>>>>> 51dafba9eea40e8ce911caca5a384829ce75fef4
+bash
+Copy
+Edit
+python marketplace.py
+Follow the interactive menu
+
+Choose from options to add, remove, sort, find, compare, clear, or exit.
+
+Requirements
+Python 3.7 or higher
+
+No external packages or dependencies
+
+File Structure
+bash
+Copy
+Edit
+marketplace_project/
+├── marketplace.py      # Main CLI application
+├── README.md           # Project documentation
+└── marketplace.csv     # Auto-created CSV file storing product data
+Notes
+The program automatically prevents duplicate product names.
+
+Timestamp is automatically recorded at the moment of adding a product.
+
+Sorting by timestamp uses actual time comparison, not string order.
+
+CSV file is created if it doesn't exist when the program runs.
+
+All operations are performed through a simple terminal interface.
