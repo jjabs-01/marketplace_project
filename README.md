@@ -23,11 +23,8 @@ A Python-based command-line application for managing products. It allows users t
    ```bash
    git clone https://github.com/yourusername/marketplace_project.git
    cd marketplace_project
-Run the application
+Run the application in the terminal
 
-bash
-Copy
-Edit
 python marketplace.py
 Follow the interactive menu
 
