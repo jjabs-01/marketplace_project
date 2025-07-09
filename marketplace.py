@@ -6,7 +6,7 @@ from datetime import datetime
 # sets a global variable for the list of categories, add categories with comma and ""
 global_category = ["book", "clothing", "gadget", "appliance", "food", "other"]
 
-# sets a timestamp to now(global)
+
 
 
 

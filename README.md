@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This Python program is a command-line-based product management system designed to let users manage a list of products through an interactive text menu. Each product has a name, a category, a price, and a timestamp that records the exact moment the item was added. All data is stored persistently in a CSV file called marketplace.csv, allowing the program to retain information between runs. The system is object-oriented, built around an Items class that encapsulates data validation rules for each product attribute using property decorators and custom setters.
 
 When the program starts, it continuously prompts the user with a menu of options until they choose to exit. The user can choose to add a new product, remove an existing one, sort the entire product list, search for a product by name, compare two products by price, clear the entire file, or quit the application. Each of these functionalities is implemented in a dedicated function, making the code modular and easy to maintain.
@@ -15,3 +16,7 @@ The compare function asks for two product names and checks if both exist in the 
 There is also a clear function that lets the user wipe the entire CSV file after confirming the decision. This resets the file but retains the column headers. Lastly, the exit function cleanly terminates the program using sys.exit().
 
 Internally, all file I/O is handled using Python’s csv.DictReader and csv.DictWriter for structured, dictionary-style data access. This avoids manual parsing and makes the code more readable. The use of object-oriented programming, input validation, datetime formatting, and persistent storage through CSV makes this program a practical and well-structured command-line application. While it is basic in interface, it demonstrates solid software principles and provides a realistic simulation of how small inventory systems work behind the scenes.
+=======
+# marketplace_project
+This Python CLI app manages products in a CSV file. Users can add, remove, sort, search, and compare items by name, category, price, or timestamp. It validates inputs, prevents duplicates, and uses timestamps for tracking. Data is stored using the csv module and structured via an Items class with properties.
+>>>>>>> 51dafba9eea40e8ce911caca5a384829ce75fef4
