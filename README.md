@@ -1,0 +1,17 @@
+This Python program is a command-line-based product management system designed to let users manage a list of products through an interactive text menu. Each product has a name, a category, a price, and a timestamp that records the exact moment the item was added. All data is stored persistently in a CSV file called marketplace.csv, allowing the program to retain information between runs. The system is object-oriented, built around an Items class that encapsulates data validation rules for each product attribute using property decorators and custom setters.
+
+When the program starts, it continuously prompts the user with a menu of options until they choose to exit. The user can choose to add a new product, remove an existing one, sort the entire product list, search for a product by name, compare two products by price, clear the entire file, or quit the application. Each of these functionalities is implemented in a dedicated function, making the code modular and easy to maintain.
+
+Adding a product involves collecting user input for the product’s name, category, and price. Input validation is performed to ensure that the name is not empty, the category matches one of a predefined set of acceptable values, and the price is non-negative. If the product passes all checks and doesn’t already exist in the file (checked by name, case-insensitive), it is written to the CSV along with a timestamp generated at that moment using Python’s datetime.now() function. The timestamp is formatted in a readable “YYYY-MM-DD HH:MMAM/PM” style.
+
+Removing a product asks the user for a name and deletes any matching product from the CSV file. The system reads all current entries, filters out the one with the specified name, and rewrites the entire file without it. If no such product is found, the user is informed.
+
+Sorting can be done by category, price, name, or timestamp. For string fields, sorting is case-insensitive; for price, the string is converted to a float before comparison. For timestamps, the string is parsed into a datetime object using datetime.strptime() to ensure proper chronological ordering. The sorted result overwrites the CSV, maintaining updated order.
+
+Finding a product allows the user to enter a name and search the CSV file for matches. If found, it prints out the product’s name, category, and price. The search is case-insensitive, and the user is prompted to continue searching or return to the main menu.
+
+The compare function asks for two product names and checks if both exist in the file. It then compares their prices numerically and prints which product is more expensive, or if they are equal. Input validation ensures the names match exactly one item each before comparing.
+
+There is also a clear function that lets the user wipe the entire CSV file after confirming the decision. This resets the file but retains the column headers. Lastly, the exit function cleanly terminates the program using sys.exit().
+
+Internally, all file I/O is handled using Python’s csv.DictReader and csv.DictWriter for structured, dictionary-style data access. This avoids manual parsing and makes the code more readable. The use of object-oriented programming, input validation, datetime formatting, and persistent storage through CSV makes this program a practical and well-structured command-line application. While it is basic in interface, it demonstrates solid software principles and provides a realistic simulation of how small inventory systems work behind the scenes.
